@@ -38,7 +38,7 @@ button {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
   font-size: small;
-  border: solid 0.2em;
+  border: solid 5px black;
   border-radius: 0.5em;
   width: 19em;
   padding: 0.5em;
@@ -46,6 +46,7 @@ button {
   display: inline-block;
   justify-content: center;
   background-color: #2000ffff; 
+
 }
 
 button:hover {
@@ -53,5 +54,5 @@ button:hover {
 }
 
 button:active {
-  border-color: rgb(212, 212, 212);
+  border-color: rgb(26, 25, 25);
 }

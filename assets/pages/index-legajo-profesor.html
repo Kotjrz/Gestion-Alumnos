@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Docentes-SignUp</title>
+  </head>
+  <body>
+    <div>
+      <h1>SignUp</h1>
+
+      <form action="gestion.php" method="post">
+        <table border="0" align="center">
+          <h2>Datos personales:</h2>
+          <input type="text" name="nombre" placeholder="Nombre" /><br />
+          <input type="text" name="apellido" placeholder="Apellido" /><br />
+          <input
+            type="text"
+            name="nacionalidad"
+            placeholder="Nacionalidad"
+          /><br />
+          <input type="number" name="dni" placeholder="DNI" /><br />
+          <input type="number" name="cuil" placeholder="CUIL" /><br />
+          <input type="number" name="edad" placeholder="Edad" /><br />
+          <h4>Fecha de nacimiento:</h4>
+          <input type="date" name="nacimiento" /><br />
+          <h2>Contacto:</h2>
+          <input type="tel" name="telefono" placeholder="Telefono" /><br />
+          <input
+            type="tel"
+            name="celular"
+            placeholder="Celular(11 ...)"
+          /><br />
+          <input type="text" name="domicilio" placeholder="Calle" /><br />
+
+          <input
+            type="number"
+            name="domicilio-numero"
+            placeholder="Numero"
+          /><br />
+          <input type="text" name="domicilio-piso" placeholder="Piso" /><br />
+          <input
+            type="text"
+            name="domicilio-dept"
+            placeholder="Departamento"
+          /><br />
+          <input
+            type="text"
+            name="domicilio-localidad"
+            placeholder="Localidad"
+          /><br />
+          <input
+            type="text"
+            name="domicilio-partido"
+            placeholder="Partido"
+          /><br />
+          <input type="email" name="email" placeholder="Email personal" /><br />
+          <input type="email" name="emailabc" placeholder="Email (abc)" /><br />
+          <h2>Documentos:</h2>
+          <input type="text" name="titulo" placeholder="Titulo" /><br />
+          <input type="text" name="legajo" placeholder="Legajo" /><br />
+          <h4>Fecha de ingreso:</h4>
+          <input type="date" name="ingreso" /><br />
+          <h4>Actividad:</h4>
+          Activo:<input type="checkbox" name="activoOno" /><br />
+
+          <button value="submit">Enviar</button>
+        </table>
+      </form>
+      <a href="../../index.html">Volver</a>
+    </div>
+  </body>
+</html>

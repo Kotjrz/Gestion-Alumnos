@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Alumnos</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!--Se conecta el HTML con el estilo-->
+  </head>
+  <body>
+    <div>
+      <table>
+        <h1>Registro de alumnos</h1>
+
+        <!--Conecta el HTML con el PHP-->
+        <form action="../php/legajo-alumno.php" method="post">
+          <h2>Datos personales</h2>
+          <input type="text" name="nombre" placeholder="Nombres" /><br />
+          <input type="text" name="apellido" placeholder="Apellidos" /><br />
+          <h4>Foto del alumno:</h4>
+          <input type="file" name="foto_alumno" />
+          <input type="text" name="dni" placeholder="DNI" /><br />
+          <br />
+          <h4>Sexo de nacimineto</h4>
+          <select name="sexo" required>
+            <option value="">Seleccione una...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option></select
+          ><br />
+          <br />
+          <h4>Identidad de Género</h4>
+          <select name="genero" required>
+            <option value="">Seleccione una...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="masc_trans">Trans Masculino</option>
+            <option value="fem_trans">Trans Femenino</option>
+            <option value="nobinario">No binario</option>
+            <option value="otras">Otras...</option>
+            <option value="ninguna">Ninguna de las anteriores</option>
+          </select>
+
+          <h2>Documentación</h2>
+          <input type="text" name="legajo" placeholder="Número Legajo" /><br />
+
+          <input
+            type="text"
+            name="entrada"
+            placeholder="Año de entrada"
+          /><br />
+
+          <h4>Documento</h4>
+          <input type="file" name="documento" placeholder="Documento" /><br />
+          <h4>Acta de Nacimiento</h4>
+          <input
+            type="file"
+            name="nacimiento"
+            placeholder="Acta de nacimiento"
+          /><br />
+
+          <h4>Ficha medica</h4>
+          <input type="file" name="medica" placeholder="Ficha medica" /><br />
+
+          <h4>Certificado de pase de primaria</h4>
+          <input
+            type="file"
+            name="cert_primaria"
+            placeholder="Certificado-Primaria"
+          /><br />
+
+          <h4>Certificado de Alumno Regular</h4>
+          <input
+            type="file"
+            name="cert_alumno"
+            placeholder="Certificado-Alumno"
+          /><br />
+
+          <button value="submit">Enviar</button>
+        </form>
+      </table>
+      <a href="../../index.html">Volver</a>
+    </div>
+  </body>
+</html>

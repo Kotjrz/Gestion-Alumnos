@@ -24,7 +24,7 @@ $datab = "gestion de alumnos";
     <table border="1">
       <tr>
         <td>
-          id
+          DNI
         </td>
         <td>
          Nombre 
@@ -47,7 +47,7 @@ $datab = "gestion de alumnos";
         while($mostrar=mysqli_fetch_array($result)){
          ?>
           <tr>
-            <td><?php echo $mostrar['numLegajo'] ?></td>
+            <td><?php echo $mostrar['DNI'] ?></td>
             <td><?php echo $mostrar['Nombre'] ?></td>
             <td><?php echo $mostrar['Apellido'] ?></td>
             <td><?php echo $mostrar['Mail'] ?></td>
@@ -58,5 +58,6 @@ $datab = "gestion de alumnos";
           ?>
         
     </table>
+    <a href="../../index.html">Volver</a>
   </body>
 </html>

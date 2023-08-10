@@ -15,19 +15,37 @@
         <!--Conecta el HTML con el PHP-->
         <form action="../php/legajo-alumno.php" method="post">
           <h2>Datos personales</h2>
-          <input type="text" name="nombre" placeholder="Nombres" /><br />
-          <input type="text" name="apellido" placeholder="Apellidos" /><br />
-          <h4>Foto del alumno:</h4>
-          <input type="file" name="foto_alumno" />
-          <input type="text" name="dni" placeholder="DNI" /><br />
+          <input type="text" name="nombre" placeholder="Apellido/s" /><br />
+          <input type="text" name="apellido" placeholder="Nombre/s" /><br />
+          <h4>Fecha de nacimientp:</h4>
+          <input type="date" name="fecha-de-nacimiento" />
           <br />
-          <h4>Sexo de nacimineto</h4>
-          <select name="sexo" required>
-            <option value="">Seleccione una...</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option></select
-          ><br />
-          <br />
+          <h4>¿Posee DNI argentino?</h4>
+
+
+          <label for="">Si, y tiene el DNI fisico</label>
+          <input type="radio" name="si" class="radio-dni"><br>
+          <label for="">SI, pero no tiene el DNI físico y se encuentra en tramite</label>
+          <input type="radio" name="si" class="radio-dni"><br>
+          <label for="">SI, pero no tiene el DNI fisico y NO se encuentra en tramite</label>
+          <input type="radio" name="si" class="radio-dni"><br>
+          <label for="">NO posee DNI argentino</label>
+          <input type="radio" name="si" class="radio-dni">
+          
+          <div class="dni_si">
+            <input type="text" name="dni" placeholder="Numero de DNI" /><br />
+            <input type="text" name="cuil" placeholder="CUIL"><br>
+          </div>
+
+          <div class="dni_no">
+            <h4>¿Posee Certificado de Pre-Identificacion?(CPI)</h4><br>
+            <input type="text" name="CPI" placeholder="Si/No">
+            <h4>¿Posee documento extranjero?</h4>
+            <input type="text" name="extranjero" placeholder="Si/No"><br>
+            <input type="text" name="tipo-doc" placeholder="Tipo de documento"><br>
+            <input type="text" name="dni" placeholder="Numero de documento"><br>
+          </div>
+
           <h4>Identidad de Género</h4>
           <select name="genero" required>
             <option value="">Seleccione una...</option>
@@ -36,18 +54,33 @@
             <option value="masc_trans">Trans Masculino</option>
             <option value="fem_trans">Trans Femenino</option>
             <option value="nobinario">No binario</option>
-            <option value="otras">Otras...</option>
-            <option value="ninguna">Ninguna de las anteriores</option>
+            <option value="otras">Otra...</option>
+            <option value="ninguna">No desea responder</option>
           </select>
 
-          <h2>Documentación</h2>
-          <input type="text" name="legajo" placeholder="Número Legajo" /><br />
+          <h4>Lugar de Nacimiento</h4>
+          <label for="">Argentina</label>
+          <input type="radio" name="ar" class="radio-ar">
+          <label for="">En el extranjero</label>
+          <input type="radio" name="ar" class="radio-ar"><br>
+          <input type="text" name="nacionalidad" placeholder="Nacionalidad"><br>
+          
+          <div class="arg">
+            <h4>Provincia</h4>
+            <label for="">Buenos Aires</label>
+            <input type="radio" name="arg-prov" class="radio-prov"><br>
+            <label for="">Otra: </label>
+            <input type="radio" name="arg-prov" class="radio-prov"><br>
+          </div>
 
-          <input
-            type="text"
-            name="entrada"
-            placeholder="Año de entrada"
-          /><br />
+          <div class="prov">
+
+          </div>
+
+
+
+
+
 
           <h4>Documento</h4>
           <input type="file" name="documento" placeholder="Documento" /><br />
@@ -80,5 +113,6 @@
       </table>
       <a href="../../index.html">Volver</a>
     </div>
+    <script src="../js/script.js"></script>
   </body>
 </html>

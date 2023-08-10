@@ -107,3 +107,44 @@ a:active {
 .button-tabla {
   grid-column: 2;
 }
+
+
+.dni_si {
+  visibility: hidden;
+  display: none;
+}
+
+.dni_si.active {
+  visibility: visible;
+  display: block;
+}
+
+.dni_no {
+  visibility: hidden;
+  display: none;
+}
+
+.dni_no.active {
+  visibility: visible;
+  display: block;
+}
+
+.arg{
+  visibility: hidden;
+  display: none;
+}
+
+.arg.active{
+  visibility: visible;
+  display: block;
+}
+
+.prov{
+  visibility: hidden;
+  display: none;
+}
+
+.prov.active{
+  visibility: visible;
+  display: block;
+}

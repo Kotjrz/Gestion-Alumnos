@@ -10,66 +10,63 @@
     <div>
       <h1>SignUp</h1>
 
-      <form action="gestion.php" method="post">
+      <form action="../php/ingresar-docente.php" method="post">
         <table border="0" align="center">
-          <h2>Datos personales:</h2>
-          <input type="text" name="nombre" placeholder="Nombre" /><br />
-          <input type="text" name="apellido" placeholder="Apellido" /><br />
+          <h2>personales:</h2>
+          <input type="text" name="Nombre" placeholder="Nombre" /><br />
+          <input type="text" name="Apellido" placeholder="Apellido" /><br />
           <input
             type="text"
             name="nacionalidad"
             placeholder="Nacionalidad"
           /><br />
-          <input type="number" name="dni" placeholder="DNI" /><br />
+          <input type="number" name="DNI" placeholder="DNI" /><br />
           <input type="number" name="cuil" placeholder="CUIL" /><br />
-          <input type="number" name="edad" placeholder="Edad" /><br />
+          <input type="number" name="Edad" placeholder="Edad" /><br />
           <h4>Fecha de nacimiento:</h4>
-          <input type="date" name="nacimiento" /><br />
+          <input type="date" name="Fecha_de_nacimiento" /><br />
           <h2>Contacto:</h2>
-          <input type="tel" name="telefono" placeholder="Telefono" /><br />
+          <input type="tel" name="Numero_de_telefono" placeholder="Telefono" /><br />
           <input
             type="tel"
-            name="celular"
+            name="Numero_de_celular"
             placeholder="Celular(11 ...)"
           /><br />
-          <input type="text" name="domicilio" placeholder="Calle" /><br />
-
-          <input
-            type="number"
-            name="domicilio-numero"
-            placeholder="Numero"
-          /><br />
-          <input type="text" name="domicilio-piso" placeholder="Piso" /><br />
+          <input type="text" name="domicilio" placeholder="Calle, numero" /><br />
+          <input type="text" name="domicilio_piso" placeholder="Piso" /><br />
           <input
             type="text"
-            name="domicilio-dept"
+            name="domicilio_depto"
             placeholder="Departamento"
           /><br />
           <input
             type="text"
-            name="domicilio-localidad"
-            placeholder="Localidad"
+            name="localidad"
+            placeholder="localidad"
           /><br />
           <input
             type="text"
-            name="domicilio-partido"
-            placeholder="Partido"
+            name="partido"
+            placeholder="partido"
           /><br />
-          <input type="email" name="email" placeholder="Email personal" /><br />
-          <input type="email" name="emailabc" placeholder="Email (abc)" /><br />
+          <input type="email" name="Mail" placeholder="Email personal" /><br />
+          <input type="email" name="mailAbc" placeholder="Email (abc)" /><br />
           <h2>Documentos:</h2>
-          <input type="text" name="titulo" placeholder="Titulo" /><br />
+          <input type="text" name="Titulo" placeholder="Titulo" /><br />
           <input type="text" name="legajo" placeholder="Legajo" /><br />
           <h4>Titulos/DNI/Antecedentes penales/etc:</h4>
           <input
             type="file"
-            name="docs_profesores"
+            name="files"
             placeholder="Documentos profesores"
           /><br />
           <h4>Fecha de ingreso:</h4>
-          <input type="date" name="ingreso" /><br />
+          <input type="date" name="Fecha_de_ingreso" /><br />
           <h4>Actividad:</h4>
-          Activo:<input type="checkbox" name="activoOno" /><br />
+          <select name="estado" id="estado">
+            <option value="Si">Activo</option>
+            <option value="No">No activo</option>
+          </select><br>
 
           <button value="submit">Enviar</button>
         </table>

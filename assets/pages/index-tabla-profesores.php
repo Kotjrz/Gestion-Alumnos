@@ -1,11 +1,15 @@
 <?php
 
+use function PHPSTORM_META\sql_injection_subst;
+
 $user = "root";
 $pass = "";
 $host = "localhost";
 $datab = "gestion de alumnos";
 
   $conexion=mysqli_connect($host,$user,$pass,$datab)
+  or die("Problemas al conectar");
+  $sql = "SELECT * FROM profesores";
 ?>
 
 <!DOCTYPE html>
@@ -38,16 +42,16 @@ $datab = "gestion de alumnos";
 
       <?php 
         $sql="SELECT * from profesores";
-        $result=mysqli_query($conexion,$sql)
+        $result=mysqli_query($conexion,$sql);
 
         while($mostrar=mysqli_fetch_array($result)){
-          ?>
+         ?>
           <tr>
-            <td><?php echo $mostrar['id'] ?></td>
-            <td><?php echo $mostrar['nombre'] ?></td>
-            <td><?php echo $mostrar['apellido'] ?></td>
-            <td><?php echo $mostrar['email'] ?></td>
-            <td><?php echo $mostrar['telefono'] ?></td>
+            <td><?php echo $mostrar['numLegajo'] ?></td>
+            <td><?php echo $mostrar['Nombre'] ?></td>
+            <td><?php echo $mostrar['Apellido'] ?></td>
+            <td><?php echo $mostrar['Mail'] ?></td>
+            <td><?php echo $mostrar['Numero de telefono'] ?></td>
           </tr>
           <?php 
          } 

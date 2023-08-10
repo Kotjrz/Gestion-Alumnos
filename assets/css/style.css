@@ -18,6 +18,15 @@ h5 {
   display: grid;
 }
 
+.w-container{
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+}
+
+
 /*---HOME---*/
 div {
   text-align: center;

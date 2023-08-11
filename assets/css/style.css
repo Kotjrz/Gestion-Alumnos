@@ -148,3 +148,23 @@ a:active {
   visibility: visible;
   display: block;
 }
+
+.otra{
+  visibility: hidden;
+  display: none;
+}
+
+.otra.active{
+  visibility: visible;
+  display: block;
+}
+
+.hermSi{
+  visibility: hidden;
+  display: none;
+}
+
+.hermSi.active{
+  visibility: visible;
+  display: block;
+}

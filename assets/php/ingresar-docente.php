@@ -29,7 +29,7 @@ $estado = $_POST["estado"];
 
 $stmt->execute();
 
-echo "New records created successfully";   
+
 header("Location: ../../index.html");
 
 $stmt->close();

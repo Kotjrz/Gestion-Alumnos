@@ -1,17 +1,6 @@
 
 <?php
-$user = "root";
-$pass = "";
-$host = "localhost";
-$datab = "gestion de alumnos";
-
-$conn = new mysqli($host,$user,$pass,$datab);
-
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("conn.php");
 
 $stmt = $conn->prepare("INSERT INTO profesores (`Nombre`, `Apellido`, `nacionalidad`, `DNI`, `cuil`, `Edad`, `Fecha de nacimiento`, `Numero de telefono`, `Numero de celular`, `domicilio`, `domicilio_piso`, `domicilio_depto`, `localidad`, `partido`, `Mail`, `mailAbc`, `Titulo`, `legajo`, `files`, `Fecha de ingreso`, `estado`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
 $stmt->bind_param("sssssssssssssssssssss", $Nombre, $Apellido, $nacionalidad, $DNI, $cuil, $Edad, $Fecha_de_nacimiento, $Numero_de_telefono, $Numero_de_celular, $domicilio, $domicilio_piso, $domicilio_depto, $localidad, $partido, $Mail, $mailAbc, $Titulo, $legajo, $files, $Fecha_de_ingreso, $estado);

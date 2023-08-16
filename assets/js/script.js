@@ -45,6 +45,8 @@ radioAr[0].onclick = () => {
 radioAr[1].onclick = () => {
 
     arg.classList.remove('active');
+    prov.classList.remove('active');
+    otra.classList.remove('active');
 }
 
 radioProv[0].onclick = () => {
@@ -68,20 +70,6 @@ radioHerm[1].onclick = () => {
 
     hermSi.classList.remove('active');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

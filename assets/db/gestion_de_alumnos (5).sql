@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2023 at 08:08 PM
+-- Generation Time: Aug 16, 2023 at 08:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,96 @@ SET time_zone = "+00:00";
 --
 -- Database: `gestion de alumnos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calificaciones`
+--
+
+CREATE TABLE `calificaciones` (
+  `Legajo` int(10) NOT NULL,
+  `codigo materia` int(30) NOT NULL,
+  `Fecha de calificacion` date NOT NULL,
+  `aprobo (si/no)` enum('Si','No') NOT NULL,
+  `nota numerica` int(30) NOT NULL,
+  `idIndicador` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuentas`
+--
+
+CREATE TABLE `cuentas` (
+  `idCuenta` int(11) NOT NULL,
+  `correo` varchar(32) NOT NULL,
+  `username` varchar(12) NOT NULL,
+  `password` varchar(12) NOT NULL,
+  `tipoCuenta` enum('Alumno','Directivo','Profesor') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `horas profesor`
+--
+
+CREATE TABLE `horas profesor` (
+  `idProfesor` int(10) NOT NULL,
+  `idMateria` int(10) NOT NULL,
+  `Fecha de toma` date NOT NULL,
+  `Categoria` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indicadores`
+--
+
+CREATE TABLE `indicadores` (
+  `idAlumno` int(10) NOT NULL,
+  `idDocente` int(10) NOT NULL,
+  `ind1` varchar(50) NOT NULL,
+  `val1` int(5) NOT NULL,
+  `ind2` varchar(50) NOT NULL,
+  `val2` int(5) NOT NULL,
+  `ind3` varchar(50) NOT NULL,
+  `val3` int(5) NOT NULL,
+  `ind4` varchar(50) NOT NULL,
+  `val4` int(5) NOT NULL,
+  `ind5` varchar(50) NOT NULL,
+  `val5` int(5) NOT NULL,
+  `ind6` varchar(50) NOT NULL,
+  `val6` int(5) NOT NULL,
+  `ind7` varchar(50) NOT NULL,
+  `val7` int(5) NOT NULL,
+  `ind8` varchar(50) NOT NULL,
+  `val8` int(5) NOT NULL,
+  `ind9` varchar(50) NOT NULL,
+  `val9` int(5) NOT NULL,
+  `ind10` varchar(50) NOT NULL,
+  `val10` int(5) NOT NULL,
+  `ind11` varchar(50) NOT NULL,
+  `val11` int(5) NOT NULL,
+  `ind12` varchar(50) NOT NULL,
+  `val12` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `materia curso`
+--
+
+CREATE TABLE `materia curso` (
+  `codigo materia` int(30) NOT NULL,
+  `nombre materia` text NOT NULL,
+  `año` int(30) NOT NULL,
+  `curso` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,9 +155,66 @@ INSERT INTO `profesores` (`idDocente`, `Nombre`, `Apellido`, `nacionalidad`, `DN
 (6, '', '', '', 0, 0, 0, '0000-00-00', 0, 0, '', 0, 0, '', '', '', '0', '', 0, 0, '0000-00-00', ''),
 (7, '', '', '', 0, 0, 0, '0000-00-00', 0, 0, '', 0, 0, '', '', '', '0', '', 0, 0, '0000-00-00', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tipo indicador (materia)`
+--
+
+CREATE TABLE `tipo indicador (materia)` (
+  `Tipo` varchar(50) NOT NULL,
+  `Valor` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `calificaciones`
+--
+ALTER TABLE `calificaciones`
+  ADD KEY `Legajo` (`Legajo`,`codigo materia`),
+  ADD KEY `codigo materia` (`codigo materia`),
+  ADD KEY `idIndicador` (`idIndicador`);
+
+--
+-- Indexes for table `cuentas`
+--
+ALTER TABLE `cuentas`
+  ADD PRIMARY KEY (`idCuenta`);
+
+--
+-- Indexes for table `horas profesor`
+--
+ALTER TABLE `horas profesor`
+  ADD KEY `idProfesor` (`idProfesor`,`idMateria`),
+  ADD KEY `idMateria` (`idMateria`);
+
+--
+-- Indexes for table `indicadores`
+--
+ALTER TABLE `indicadores`
+  ADD KEY `idAlumno` (`idAlumno`,`idDocente`),
+  ADD KEY `idDocente` (`idDocente`),
+  ADD KEY `ind1` (`ind1`,`val1`,`ind2`,`val2`,`ind3`,`val3`,`ind4`,`val4`,`ind5`,`val5`,`ind6`,`val6`,`ind7`,`val7`,`ind8`,`val8`,`ind9`,`val9`,`ind10`,`val10`,`ind11`,`val11`,`ind12`,`val12`),
+  ADD KEY `ind2` (`ind2`),
+  ADD KEY `ind3` (`ind3`),
+  ADD KEY `ind4` (`ind4`),
+  ADD KEY `ind5` (`ind5`),
+  ADD KEY `ind6` (`ind6`),
+  ADD KEY `ind7` (`ind7`),
+  ADD KEY `ind8` (`ind8`),
+  ADD KEY `ind9` (`ind9`),
+  ADD KEY `ind10` (`ind10`),
+  ADD KEY `ind11` (`ind11`),
+  ADD KEY `ind12` (`ind12`);
+
+--
+-- Indexes for table `materia curso`
+--
+ALTER TABLE `materia curso`
+  ADD PRIMARY KEY (`codigo materia`);
 
 --
 -- Indexes for table `profesores`
@@ -76,14 +223,59 @@ ALTER TABLE `profesores`
   ADD PRIMARY KEY (`idDocente`);
 
 --
+-- Indexes for table `tipo indicador (materia)`
+--
+ALTER TABLE `tipo indicador (materia)`
+  ADD PRIMARY KEY (`Tipo`,`Valor`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cuentas`
+--
+ALTER TABLE `cuentas`
+  MODIFY `idCuenta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `materia curso`
+--
+ALTER TABLE `materia curso`
+  MODIFY `codigo materia` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `profesores`
 --
 ALTER TABLE `profesores`
   MODIFY `idDocente` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `horas profesor`
+--
+ALTER TABLE `horas profesor`
+  ADD CONSTRAINT `horas profesor_ibfk_2` FOREIGN KEY (`idMateria`) REFERENCES `materia curso` (`codigo materia`);
+
+--
+-- Constraints for table `indicadores`
+--
+ALTER TABLE `indicadores`
+  ADD CONSTRAINT `indicadores_ibfk_10` FOREIGN KEY (`ind8`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_11` FOREIGN KEY (`ind9`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_12` FOREIGN KEY (`ind10`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_13` FOREIGN KEY (`ind11`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_14` FOREIGN KEY (`ind12`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_3` FOREIGN KEY (`ind1`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_4` FOREIGN KEY (`ind2`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_5` FOREIGN KEY (`ind3`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_6` FOREIGN KEY (`ind4`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_7` FOREIGN KEY (`ind5`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_8` FOREIGN KEY (`ind6`) REFERENCES `tipo indicador (materia)` (`Tipo`),
+  ADD CONSTRAINT `indicadores_ibfk_9` FOREIGN KEY (`ind7`) REFERENCES `tipo indicador (materia)` (`Tipo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

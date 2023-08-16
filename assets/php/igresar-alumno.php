@@ -3,7 +3,7 @@
 include("lib/conn.php");
 
 
-$stmt = $conn->prepare("INSERT INTO alumnos ('apellidos', 'nombres', 'fechDeNacimiento', 'DNI', 'CUIL', 'CPI', 'documentoExtranjero', 'tipoDocumento', 'DNIe', 'idenGenero', 'nacionalidad', 'provincia', 'distrito', 'localidad', 'otra', 'direccion', 'piso', 'torre', 'depto', 'entre', 'yEntre', 'otroDato', 'provDomicilio', 'distriDomicilio','localiDomicilio' 'telefonoFIjo', 'telefonoCelular','cantHermanos', 'hermEscuela') VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO alumnos (`apellidos`, `nombres`, `fechaDeNacimiento`, `DNI`, `CUIL`, `CPI`, `documentoExtranjero`, `tipoDoc`, `DNIe`, `idenGenero`, `nacionalidad`, `provincia`, `distrito`, `localidad`, `otra`, `direccion`, `piso`, `torre`, `depto`, `entre`, `yEntre`, `otroDato`, `provDomicilio`, `distriDomicilio`, `localiDomicilio`, `telefonoFIjo`, `telefonoCelular`,`cantHermanos`, `hermEscuela`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
 $stmt->bind_param("sssssssssssssssssssssssssssss", $apellidos, $nombres, $FechaDeNacimiento, $DNI, $CUIL, $CPI, $documentoExtranjero, $tipoDocumento, $DNIe, $idenGenero, $nacionalidad, $provincia, $distrito, $localidad, $otra, $direccion, $piso, $torre, $depto, $entre, $yEntre, $otroDato, $provDomicilio, $distriDomicilio, $loacliDomicilio, $telefonoFijo, $telefonoCelular, $cantHermanos, $hermEscuela,);

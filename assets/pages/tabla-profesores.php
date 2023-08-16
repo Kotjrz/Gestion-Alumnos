@@ -2,14 +2,7 @@
 
 use function PHPSTORM_META\sql_injection_subst;
 
-$user = "root";
-$pass = "";
-$host = "localhost";
-$datab = "gestion de alumnos";
-
-  $conexion=mysqli_connect($host,$user,$pass,$datab)
-  or die("Problemas al conectar");
-  $sql = "SELECT * FROM profesores";
+include("../php/lib/conn.php")
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +35,7 @@ $datab = "gestion de alumnos";
 
       <?php 
         $sql="SELECT * from profesores";
-        $result=mysqli_query($conexion,$sql);
+        $result=mysqli_query($conn,$sql);
 
         while($mostrar=mysqli_fetch_array($result)){
          ?>

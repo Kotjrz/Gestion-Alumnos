@@ -278,6 +278,81 @@ ALTER TABLE `indicadores`
   ADD CONSTRAINT `indicadores_ibfk_9` FOREIGN KEY (`ind7`) REFERENCES `tipo indicador (materia)` (`Tipo`);
 COMMIT;
 
+
+
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-08-2023 a las 20:32:28
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `gestion de alumnos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumnos`
+--
+
+CREATE TABLE `alumnos` (
+  `idAlumno` int(11) NOT NULL,
+  `apellidos` varchar(24) NOT NULL,
+  `nombres` varchar(24) NOT NULL,
+  `fechaDeNacimiento` date NOT NULL,
+  `DNI` int(10) NOT NULL,
+  `CUIL` int(12) NOT NULL,
+  `CPI` enum('si','no','Si','No') NOT NULL,
+  `documentoExtranjero` enum('si','no','Si','No') NOT NULL,
+  `tipoDoc` varchar(32) NOT NULL,
+  `idenGenero` enum('Masculino','Femenino','Trans masculino','Trans femenino','No binario','Otra','No desea responder') NOT NULL,
+  `nacionalidad` varchar(32) NOT NULL,
+  `provincia` varchar(32) NOT NULL,
+  `direccion` varchar(32) NOT NULL,
+  `piso` int(12) NOT NULL,
+  `torre` int(32) NOT NULL,
+  `depto` int(32) NOT NULL,
+  `entre` varchar(32) NOT NULL,
+  `yEntre` varchar(32) NOT NULL,
+  `otroDato` varchar(32) NOT NULL,
+  `provDomicilio` varchar(32) NOT NULL,
+  `distriDomicilio` varchar(32) NOT NULL,
+  `localiDomiciolio` varchar(32) NOT NULL,
+  `telefonoFijo` varchar(32) NOT NULL,
+  `telefonoCelular` varchar(32) NOT NULL,
+  `cantHermanos` int(20) NOT NULL,
+  `hermEscuela` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD PRIMARY KEY (`idAlumno`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

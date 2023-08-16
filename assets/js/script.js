@@ -39,6 +39,7 @@ radioDni[3].onclick = () => {
 radioAr[0].onclick = () => {
 
     arg.classList.add('active');
+    otra.classList.remove('active')
 
 }
 
@@ -53,6 +54,7 @@ radioProv[0].onclick = () => {
 
     prov.classList.add('active');
     otra.classList.remove('active');
+
 }
 
 radioProv[1].onclick = () => {

@@ -22,6 +22,7 @@ if ($getQuery) {
 </head>
 
 <body>
+
     <?php if (!empty($alumnos)): ?>
         <div id="class-container">
             <?php foreach ($alumnos as $post) : ?>
@@ -37,8 +38,25 @@ if ($getQuery) {
     <?php else : ?>
         <p>No hay alumnos registrados.</p>
     <?php endif; ?>
+    <form action="" method="get">
+        <input type="text" name="buscador" placeholder="Buscar Alumno por DNI"><br>
+        <input type="submit" name="enviar" value="Buscar">
+    </form>
+
     <a href="../../index.html">Volver</a>
 
 </body>
 
 </html>
+
+
+
+<!-- if(isset($_GET['enviar']))
+{
+  $busqueda = $_GET['buscador'];
+  $consulta = $conn->query("SELECT * FROM alumnos WHERE DNI LIKE '%{$busqueda}%' OR DNIe LIKE '%{$busqueda}%';");
+
+  while($row = $consulta ->fetch_array())
+  {
+    echo $row['DNI'] . $row['DNIe'] . '<br>';
+  } -->

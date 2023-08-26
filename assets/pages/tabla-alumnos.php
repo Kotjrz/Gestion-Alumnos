@@ -28,12 +28,47 @@ if (isset($_GET['buscador'])) {
 </head>
 
 <body>
-<form action="" method="get">
+
+
+    <form action="" method="get">
         <input type="text" name="buscador" placeholder="Buscar Alumno por DNI"><br>
         <input type="submit" name="enviar" value="Buscar">
     </form>
 
-    <?php if (!empty($alumnos)): ?>
+    <table border="1">
+        <tr>
+            <td>DNI</td>
+            <td>Apellido</td>
+            <td>Nombre</td>
+            <td>Curso</td>
+            <td>Division</td>
+            <td>Detalle</td>
+        </tr>
+        <tr>
+            <?php
+            $sql ="SELECT * from alumnos";
+            $result = mysqli_query($conn,$sql);
+
+            while($mostrar = mysqli_fetch_array($result))
+            {
+                ?>
+                <tr>
+                    <td><?php echo $mostrar['DNI'] ?></td>
+                    <td><?php echo $mostrar['apellidos'] ?></td>
+                    <td><?php echo $mostrar['nombres'] ?></td>
+                    <td>No echo</td>
+                    <td>No echo</td>
+                    <td><a href="alumno.php?idalumno=<?php echo $mostrar["idAlumno"];?>">Detalles</a></td>
+                </tr>
+                <?php
+            }
+
+            ?>
+        </tr>
+
+    </table>
+
+<!--     <?php if (!empty($alumnos)): ?>
         <div id="class-container">
             <?php foreach ($alumnos as $post) : ?>
                 <div>
@@ -47,7 +82,7 @@ if (isset($_GET['buscador'])) {
         </div>
     <?php else : ?>
         <p>No hay alumnos registrados.</p>
-    <?php endif; ?>
+    <?php endif; ?> -->
 
 
     <a href="../../index.html">Volver</a>

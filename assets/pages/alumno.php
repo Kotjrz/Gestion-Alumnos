@@ -3,7 +3,7 @@ include("../php/lib/conn.php");
 
 $id_alumno = $_GET['idalumno'];
 
-$sql_alumno = "SELECT * FROM alumnos WHERE idAlumno = $id_alumno";
+$sql_alumno = "SELECT * FROM alumnos WHERE idAlumno = '$id_alumno'";
 
 $alumno = mysqli_query($conn, $sql_alumno);
 
@@ -23,13 +23,14 @@ $row = mysqli_fetch_assoc($alumno);
 <body>
 
 <?php
-echo $row['nombres'];
+echo '<h4>Nombre del alumno</h4>' . $row['nombres'];
 echo '<br>';
-echo $row['apellidos'];
+echo '<h4>Apellido del alumno</h4>' . $row['apellidos'];
 echo '<br>';
-echo $row['DNI'];
+echo  '<h4>DNI</h4>' . $row['DNI'];
 echo '<br>';
-echo $row['CUIL'];
+echo '<h4>CUIL</h4>'. $row['CUIL'];
+echo '<br>'
 ?>
 
     

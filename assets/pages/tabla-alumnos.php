@@ -1,7 +1,7 @@
 <?php
 include("../php/lib/conn.php");
 
-if (isset($_GET['buscador'])) {
+/* if (isset($_GET['buscador'])) {
     $buscador = $_GET['buscador'];
     $consulta = "SELECT * FROM alumnos WHERE DNI LIKE '%{$buscador}%' OR DNIe LIKE '%{$buscador}%';";
     $getQuery = mysqli_query($conn, $consulta);
@@ -14,6 +14,9 @@ if (isset($_GET['buscador'])) {
 } else {
     $alumnos = mysqli_query($conn, "SELECT * FROM alumnos");
 }
+
+$resCurso = mysqli_query($conn, "SELECT * from alumnos") */
+  
 
 ?>
 
@@ -30,9 +33,62 @@ if (isset($_GET['buscador'])) {
 <body>
 
 
-    <form action="" method="get">
-        <input type="text" name="buscador" placeholder="Buscar Alumno por DNI"><br>
-        <input type="submit" name="enviar" value="Buscar">
+    <form action="tabla-alumnos.php" method="post" name="form2">
+        <input type="text" placeholder="Buscar" id="buscar" name="buscar" value="<?php  echo $_POST["buscar"]?>">
+        <h4>Filtros de busqueda</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Curso
+                        <select name="buscacurso" id="buscacurso">
+                            <?php if($_POST["buscacurso"] != '') {?>
+                                <option value="<?php echo $_POST["buscacurso"]; ?>"><?php echo $_POST["buscacurso"];?></option>
+                                <?php } ?>
+                                <option value="">Todos</option>
+                                <option value="">1ro</option>
+                                <option value="">2do</option>
+                                <option value="">3ro</option>
+                                <option value="">4to</option>
+                                <option value="">5to</option>
+                                <option value="">6to</option>
+                                <option value="">7mo</option>
+                        </select> 
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <h4>Ordenar por</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Seleccione orden
+                        <select name="orden" id="orden">
+                            <?php if($_POST["orden"] != ''){?>
+                            <option value="<?php echo $_POST["orden"]; ?>">
+                            <?php
+                            if($_POST["orden"] == '1' ){echo 'Ordenar por curso. Mayor a menor';}
+                            if($_POST["orden"] == '2' ){echo 'Ordenar por curso. Menor a mayor';}
+                            if($_POST["orden"] == '3' ){echo 'Ordenar por division. Mayor a menor';}
+                            if($_POST["orden"] == '4' ){echo 'Ordenar por division. Menor a Mayor';}
+                            if($_POST["orden"] == '5' ){echo 'Ordenar por DNI. Mayor a menor';}
+                            if($_POST["orden"] == '6' ){echo 'Ordenar por DNI. Menor a mayor';}
+                            ?>
+                        </option>
+                        <?php } ?>
+                        <option value="">Sin ordenar</option>
+                        <option value="1">Ordenar por curso. Mayor a menor</option>
+                        <option value="2">Ordenar por curso. Menor a mayor</option>
+                        <option value="3">Ordenar por division. Mayor a menor</option>
+                        <option value="4">Ordenar por division. Menor a Mayor</option>
+                        <option value="5">Ordenar por DNI. Mayor a menor</option>
+                        <option value="6">Ordenar por DNI. Menor a mayor</option>
+                        </select>
+                    </th>
+                </tr>
+            </thead>
+        </table>
     </form>
 
     <table border="1">
@@ -68,7 +124,11 @@ if (isset($_GET['buscador'])) {
 
     </table>
 
-<!--     <?php if (!empty($alumnos)): ?>
+<!--   ESTRUCTURA DE ALUMNOS CON TIPO CARDS DE RED SOCIAL
+    
+
+
+<?php if (!empty($alumnos)): ?>
         <div id="class-container">
             <?php foreach ($alumnos as $post) : ?>
                 <div>

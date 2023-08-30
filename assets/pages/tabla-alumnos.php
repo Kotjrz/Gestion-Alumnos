@@ -24,7 +24,7 @@ if (!isset($_POST['buscacurso'])) {
 }
 if (!isset($_POST['orden'])) {
     $_POST['orden'] = '';
-}
+    }
 
 ?>
 
@@ -138,9 +138,38 @@ if (!isset($_POST['orden'])) {
             $query .= "AND curso = '". $_POST['buscausuario'] . "'";
     }
 
+    if($_POST["orden"] == 1)
+    {
+        $query .= "ORDER BY curso ASC";
+    }
+    if($_POST["orden"] == 2)
+    {
+        $query .= "ORDER BY curso DESC";
+    }
+    if($_POST["orden"] == 3)
+    {
+        $query .= "ORDER BY division ASC";
+    }
+    if($_POST["orden"] == 4)
+    {
+        $query .= "ORDER BY division DESC";
+    }
+    if($_POST["orden"] == 5)
+    {
+        $query .= "ORDER BY alumnos.DNI ASC";
+    }
+    if($_POST["orden"] == 6)
+    {
+        $query .= "ORDER BY alumnos.DNI DESC";
+
+    }
+
+    $sql = $conn->query($query);
+
+    $numeroSql = mysqli_num_rows($sql)
 
     ?>
-
+    <p><i></i><?php echo $numeroSql  ?> Datos encontrados</p>
 
     <div>
         <table border="1">
@@ -154,18 +183,16 @@ if (!isset($_POST['orden'])) {
             </tr>
             <tr>
                 <?php
-                $sql = "SELECT * from alumnos";
-                $result = mysqli_query($conn, $sql);
 
-                while ($mostrar = mysqli_fetch_array($result)) {
+                while ($rowSql = $sql->fetch_assoc()) {
                 ?>
             <tr>
-                <td><?php echo $mostrar['DNI'] ?></td>
-                <td><?php echo $mostrar['apellidos'] ?></td>
-                <td><?php echo $mostrar['nombres'] ?></td>
+                <td><?php echo $rowSql['DNI'] ?></td>
+                <td><?php echo $rowSql['apellidos'] ?></td>
+                <td><?php echo $rowSql['nombres'] ?></td>
                 <td>No hecho</td>
                 <td>No hecho</td>
-                <td><a href="alumno.php?idalumno=<?php echo $mostrar["idAlumno"]; ?>" class="a-detalles">Detalles</a></td>
+                <td><a href="alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-detalles">Detalles</a></td>
             </tr>
         <?php
                 }
@@ -177,10 +204,7 @@ if (!isset($_POST['orden'])) {
     </div>
 
     <!--   ESTRUCTURA DE ALUMNOS CON TIPO CARDS DE RED SOCIAL
-    
-
-
-<?php if (!empty($alumnos)) : ?>
+    <?php if (!empty($alumnos)) : ?>
         <div id="class-container">
             <?php foreach ($alumnos as $post) : ?>
                 <div>

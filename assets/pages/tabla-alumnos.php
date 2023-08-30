@@ -16,6 +16,15 @@ include("../php/lib/conn.php");
 }
 
 $resCurso = mysqli_query($conn, "SELECT * from alumnos") */
+if (!isset($_POST['buscar'])) {
+    $_POST['buscar'] = '';
+}
+if (!isset($_POST['buscacurso'])) {
+    $_POST['buscacurso'] = '';
+}
+if (!isset($_POST['orden'])) {
+    $_POST['orden'] = '';
+}
 
 ?>
 

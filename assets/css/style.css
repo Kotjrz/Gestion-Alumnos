@@ -18,14 +18,12 @@ h5 {
   display: grid;
 }
 
-.w-container{
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-
+.w-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-
 
 /*---HOME---*/
 div {
@@ -67,6 +65,58 @@ button:active {
   border-color: rgb(212, 212, 212);
 }
 
+.button-medium-delete {
+  color: white;
+  cursor: pointer;
+  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-size: small;
+  border: solid 0.2em;
+  border-radius: 0.5em;
+  width: 8em;
+  padding: 0.5em;
+  margin: 0.5em;
+  display: inline-block;
+  justify-content: center;
+  background-color: red;
+}
+
+.button-medium-delete:hover {
+  background-color: rgb(204, 0, 0);
+}
+
+.button-medium-delete:active {
+  border-color: rgb(212, 212, 212);
+}
+
+.button-medium-update {
+  color: white;
+  cursor: pointer;
+  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-size: small;
+  border: solid 0.2em;
+  border-radius: 0.5em;
+  width: 8em;
+  padding: 0.5em;
+  margin: 0.5em;
+  display: inline-block;
+  justify-content: center;
+  background-color: orange;
+}
+
+.button-medium-update:hover {
+  background-color: rgb(255, 123, 0);
+}
+
+.button-medium-update:active {
+  border-color: rgb(212, 212, 212);
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -83,6 +133,7 @@ a {
   margin: 0.5em;
   display: inline-block;
   justify-content: center;
+  text-align: center;
   background-color: #2000ffff;
 }
 
@@ -108,7 +159,6 @@ a:active {
   grid-column: 2;
 }
 
-
 .dni_si {
   visibility: hidden;
   display: none;
@@ -129,42 +179,42 @@ a:active {
   display: block;
 }
 
-.arg{
+.arg {
   visibility: hidden;
   display: none;
 }
 
-.arg.active{
+.arg.active {
   visibility: visible;
   display: block;
 }
 
-.prov{
+.prov {
   visibility: hidden;
   display: none;
 }
 
-.prov.active{
+.prov.active {
   visibility: visible;
   display: block;
 }
 
-.otra{
+.otra {
   visibility: hidden;
   display: none;
 }
 
-.otra.active{
+.otra.active {
   visibility: visible;
   display: block;
 }
 
-.hermSi{
+.hermSi {
   visibility: hidden;
   display: none;
 }
 
-.hermSi.active{
+.hermSi.active {
   visibility: visible;
   display: block;
 }

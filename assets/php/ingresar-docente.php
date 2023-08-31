@@ -2,7 +2,7 @@
 <?php
 include("lib/conn.php");
 
-$stmt = $conn->prepare("INSERT INTO profesores (`Nombre`, `Apellido`, `nacionalidad`, `DNI`, `cuil`, `Edad`, `fechaDeNacimiento`, `numeroDeTelefono`, `numeroDeCelular`, `domicilio`, `domicilio_piso`, `domicilio_depto`, `localidad`, `partido`, `Mail`, `mailAbc`, `Titulo`, `legajo`, `files`, `Fecha de ingreso`, `estado`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
+$stmt = $conn->prepare("INSERT INTO profesores (`Nombre`, `Apellido`, `nacionalidad`, `DNI`, `cuil`, `Edad`, `fechaDeNacimiento`, `numeroDeTelefono`, `numeroDeCelular`, `domicilio`, `domicilio_piso`, `domicilio_depto`, `localidad`, `partido`, `Mail`, `mailAbc`, `Titulo`, `legajo`, `files`, `fechaDeIngreso`, `estado`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
 $stmt->bind_param("sssssssssssssssssssss", $Nombre, $Apellido, $nacionalidad, $DNI, $cuil, $Edad, $Fecha_de_nacimiento, $Numero_de_telefono, $Numero_de_celular, $domicilio, $domicilio_piso, $domicilio_depto, $localidad, $partido, $Mail, $mailAbc, $Titulo, $legajo, $files, $Fecha_de_ingreso, $estado);
 
 $Nombre = $_POST["Nombre"];

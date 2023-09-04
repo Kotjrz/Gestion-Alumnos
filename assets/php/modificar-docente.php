@@ -11,12 +11,10 @@ if(!$result){
 }else{
   $row = mysqli_fetch_assoc($result);
 
-  print_r($row);
 
 }
 
 }
-
 
 ?>
 <!DOCTYPE html>

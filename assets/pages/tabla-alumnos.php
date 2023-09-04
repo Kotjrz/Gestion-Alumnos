@@ -16,7 +16,7 @@ include("../php/lib/conn.php");
 }
 
 $resCurso = mysqli_query($conn, "SELECT * from alumnos") */
-if (!isset($_POST['buscar'])) {
+/* if (!isset($_POST['buscar'])) {
     $_POST['buscar'] = '';
 }
 if (!isset($_POST['buscacurso'])) {
@@ -25,7 +25,21 @@ if (!isset($_POST['buscacurso'])) {
 if (!isset($_POST['orden'])) {
     $_POST['orden'] = '';
     }
+ */
 
+if(isset($_GET['search'])){
+    $searchQuery = $_GET['search'];
+    $consulta = "SELECT * FROM alumnos WHERE DNI LIKE '%{$searchQuery}%' OR DNIe LIKE '%{$searchQuery}%';";
+    $getQuery = mysqli_query($conn, $consulta);
+
+    if ($getQuery) {
+        $alumnos = mysqli_fetch_all($getQuery, MYSQLI_ASSOC);
+    }
+
+    else {
+        echo "Error in the search query: " . mysqli_error($conn);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,136 +54,12 @@ if (!isset($_POST['orden'])) {
 
 <body>
 
+    <h1>Alumnos</h1>
 
-    <form action="tabla-alumnos.php" method="post" name="form2">
-        <input type="text" placeholder="Buscar" id="buscar" name="buscar" value="<?php echo $_POST["buscar"] ?>">
-        <h4>Filtros de busqueda</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        Curso
-                        <select name="buscacurso" id="buscacurso">
-                            <?php if ($_POST["buscacurso"] != '') { ?>
-                                <option value="<?php echo $_POST["buscacurso"]; ?>"><?php echo $_POST["buscacurso"]; ?></option>
-                            <?php } ?>
-                            <option value="">Todos</option>
-                            <option value="">1ro</option>
-                            <option value="">2do</option>
-                            <option value="">3ro</option>
-                            <option value="">4to</option>
-                            <option value="">5to</option>
-                            <option value="">6to</option>
-                            <option value="">7mo</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-        <h4>Ordenar por</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        Seleccione orden
-                        <select name="orden" id="orden">
-                            <?php if ($_POST["orden"] != '') { ?>
-                                <option value="<?php echo $_POST["orden"]; ?>">
-                                    <?php
-                                    if ($_POST["orden"] == '1') {
-                                        echo 'Ordenar por curso. Mayor a menor';
-                                    }
-                                    if ($_POST["orden"] == '2') {
-                                        echo 'Ordenar por curso. Menor a mayor';
-                                    }
-                                    if ($_POST["orden"] == '3') {
-                                        echo 'Ordenar por division. Mayor a menor';
-                                    }
-                                    if ($_POST["orden"] == '4') {
-                                        echo 'Ordenar por division. Menor a Mayor';
-                                    }
-                                    if ($_POST["orden"] == '5') {
-                                        echo 'Ordenar por DNI. Mayor a menor';
-                                    }
-                                    if ($_POST["orden"] == '6') {
-                                        echo 'Ordenar por DNI. Menor a mayor';
-                                    }
-                                    ?>
-                                </option>
-                            <?php } ?>
-                            <option value="">Sin ordenar</option>
-                            <option value="1">Ordenar por curso. Mayor a menor</option>
-                            <option value="2">Ordenar por curso. Menor a mayor</option>
-                            <option value="3">Ordenar por division. Mayor a menor</option>
-                            <option value="4">Ordenar por division. Menor a Mayor</option>
-                            <option value="5">Ordenar por DNI. Mayor a menor</option>
-                            <option value="6">Ordenar por DNI. Menor a mayor</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-        <input type="submit">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+        <input type="text" name="search" placeholder="Buscar alumno">
+        <input type="submit" value="Buscar">
     </form>
-
-    <?php
-    if ($_POST['buscar'] = '') {
-        $_POST['buscar'] = '';
-    }
-    $aKeyword = explode(' ', trim($_POST['buscar']));
-
-    if ($_POST["buscar"] == '' and $_POST["buscausuario"] == '' and $_POST["orden"] == '') {
-        $query = "SELECT * FROM alumnos";
-    } else {
-
-        if ($_POST["buscar"] != '') {
-            $query = "WHERE (apellidos LIKE LOWER ('%".$aKeyword[0]."%') OR nombres LIKE LOWER ('%".$aKeyword[0]."%') OR DNI LIKE ('%".$aKeyword[0]."%')";
-            for($i = 1; $i < count($aKeyword); $i++)
-            {
-                if(!empty($aKeyword[$i]))
-                {
-                    $query .= " OR apellidos LIKE '%" . $aKeyword[$i] . "%' OR nombres LIKE '%" . $aKeyword[$i] . "%' OR DNI LIKE '%" . $aKeyword[$i] . "%'";
-                }
-            }
-        }
-    }
-
-    if($_POST["buscausuario"] != ''){
-            $query .= "AND curso = '". $_POST['buscausuario'] . "'";
-    }
-
-    if($_POST["orden"] == 1)
-    {
-        $query .= "ORDER BY curso ASC";
-    }
-    if($_POST["orden"] == 2)
-    {
-        $query .= "ORDER BY curso DESC";
-    }
-    if($_POST["orden"] == 3)
-    {
-        $query .= "ORDER BY division ASC";
-    }
-    if($_POST["orden"] == 4)
-    {
-        $query .= "ORDER BY division DESC";
-    }
-    if($_POST["orden"] == 5)
-    {
-        $query .= "ORDER BY alumnos.DNI ASC";
-    }
-    if($_POST["orden"] == 6)
-    {
-        $query .= "ORDER BY alumnos.DNI DESC";
-
-    }
-
-    $sql = $conn->query($query);
-
-    $numeroSql = mysqli_num_rows($sql)
-
-    ?>
-    <p><i></i><?php echo $numeroSql  ?> Datos encontrados</p>
 
     <div>
         <table border="1">
@@ -183,8 +73,7 @@ if (!isset($_POST['orden'])) {
             </tr>
             <tr>
                 <?php
-
-                while ($rowSql = $sql->fetch_assoc()) {
+                foreach ($alumnos as $rowSql) {
                 ?>
             <tr>
                 <td><?php echo $rowSql['DNI'] ?></td>

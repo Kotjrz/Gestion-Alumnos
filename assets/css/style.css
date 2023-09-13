@@ -29,6 +29,7 @@ h5 {
 div {
   text-align: center;
 }
+
 /*---SignUp---*/
 
 input {
@@ -37,6 +38,14 @@ input {
   border: solid 0.2em;
   border-radius: 0.5em;
   border-color: rgb(238, 240, 237);
+}
+
+.table-alumnos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 button {

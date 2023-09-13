@@ -5,18 +5,26 @@ include("../php/lib/conn.php");
 // Define la pagina actual
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
 //Cantidad de elementos por pagina
-$limit = 5;
+$limit = 10;
 
 // calcula el offset
 $offset = ($page - 1) * $limit;
 
+$whereClause = '';
+if ($search != '') {
+    $whereClause = "WHERE DNI LIKE '%$search%' OR DNIe LIKE '%$search%'";
+}
+
+
 // usando el limite y el offset calcula la consulta
-$consultaPaginacion = "SELECT * FROM alumnos LIMIT $limit OFFSET $offset";
+$consultaPaginacion = "SELECT * FROM alumnos $whereClause LIMIT $limit OFFSET $offset";
 $getQueryPaginacion = mysqli_query($conn, $consultaPaginacion);
 
 // Cantidad deintems
-$consultaTotal = "SELECT COUNT(*) as total FROM alumnos";
+$consultaTotal = "SELECT COUNT(*) as total FROM alumnos $whereClause";
 $getQueryTotal = mysqli_query($conn, $consultaTotal);
 $rowTotal = mysqli_fetch_assoc($getQueryTotal);
 $totalItems = $rowTotal['total'];
@@ -37,6 +45,16 @@ $totalPages = ceil($totalItems / $limit);
 </head>
 
 <body>
+    <div>
+        <h1>Ver alumnos</h1>
+    </div>
+    <div>
+        <form action="" method="GET">
+            <input type="text" name="search" placeholder="Buscar" value="<?php echo $search ?>">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+    <div class="table-alumnos">
     <table class="table" border="1">
         <thead>
             <tr>
@@ -61,6 +79,7 @@ $totalPages = ceil($totalItems / $limit);
             <?php } ?>
         </tbody>
     </table>
+    </div>
 
     <div class="pagination">
         <?php if ($page > 1) { ?>

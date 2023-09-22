@@ -55,30 +55,32 @@ $totalPages = ceil($totalItems / $limit);
         </form>
     </div>
     <div class="table-alumnos">
-    <table class="table" border="1">
-        <thead>
-            <tr>
-                <th>DNI</th>
-                <th>Apellidos</th>
-                <th>Nombres</th>
-                <th>Column 4</th>
-                <th>Column 5</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($rowSql = mysqli_fetch_assoc($getQueryPaginacion)) { ?>
+        <table class="tabla-alumnos" border="1">
+            <thead>
                 <tr>
-                    <td><?php echo $rowSql['DNI']; ?></td>
-                    <td><?php echo $rowSql['apellidos']; ?></td>
-                    <td><?php echo $rowSql['nombres']; ?></td>
-                    <td>No hecho</td>
-                    <td>No hecho</td>
-                    <td><a href="alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-detalles">Detalles</a></td>
+                    <th>DNI</th>
+                    <th>Apellidos</th>
+                    <th>Nombres</th>
+                    <th>Column 4</th>
+                    <th>Column 5</th>
+                    <th>Detalles</th>
+                    <!-- <th>Eliminar</th> -->
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php while ($rowSql = mysqli_fetch_assoc($getQueryPaginacion)) { ?>
+                    <tr>
+                        <td><?php echo $rowSql['DNI']; ?></td>
+                        <td><?php echo $rowSql['apellidos']; ?></td>
+                        <td><?php echo $rowSql['nombres']; ?></td>
+                        <td>No hecho</td>
+                        <td>No hecho</td>
+                        <td><a href="alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-detalles">Detalles</a></td>
+                        <!-- <td><a href="../php/eliminar-alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-eliminar">Eliminar</a></td> -->
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 
     <div class="pagination">
@@ -96,9 +98,7 @@ $totalPages = ceil($totalItems / $limit);
             <a href="?page=<?php echo ($page + 1); ?>">Next</a>
         <?php } ?>
     </div>
-    <div>
-        <a href="../../index.html">Volver</a>
-    </div>
+    <a href="../../index.html" class="volver-a">Volver</a>
 
 </body>
 

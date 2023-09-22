@@ -15,7 +15,6 @@ include("../php/eliminar-docente.php");
   <link rel="stylesheet" href="../css/style.css" />
   <title>Tabla de profesores</title>
 </head>
-
 <body>
   <table border="1">
     <tr>

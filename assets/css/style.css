@@ -44,9 +44,15 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0 auto;
+  height: auto;
+  margin: auto;
 }
+
+.volver-a
+{
+  float: left;
+}
+
 
 button {
   color: white;

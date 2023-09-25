@@ -59,7 +59,7 @@ if ($result->num_rows > 0) {
             }
 
             echo '<h4>' . strtoupper($newColumnName) . '</h4>' . $row[$columnName] . '<br>';
-            echo '<a href="../php/editar-alumno.php?column=' . $columnName . ' ">Edit</a><br>';
+            echo '<a href="../php/editar-alumno.php?column=' . $columnName . '&idalumno=' . $id_alumno . ' ">Edit</a><br>';
         }
 
         ?>

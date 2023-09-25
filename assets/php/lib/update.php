@@ -3,8 +3,8 @@ include("../../php/lib/conn.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['idalumno']) && isset($_POST['column']) && isset($_POST['value'])) {
-        $IDalumno = $_POST['idalumno'];
+    if (isset($_GET['idalumno']) && isset($_POST['column']) && isset($_POST['value'])) {
+        $IDalumno = $_GET['idalumno'];
         $columnName = $_POST['column'];
         $newValue = $_POST['value'];
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Close the database connection
         mysqli_close($conn);
     } else {
-        echo 'Error: Student ID, column name, or value not specified.';
+        echo 'Error: IdAlumno, column name, or value not specified.';
     }
 } else {
     echo 'Error: Form not submitted.';

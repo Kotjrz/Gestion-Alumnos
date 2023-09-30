@@ -1,6 +1,6 @@
 <?php
 
-include('conexion.php');
+include('../php/lib/conn.php');
 
 header("Content-Type: application/json");
 
@@ -8,9 +8,9 @@ header("Content-Type: application/json");
 if(isset($_GET['DNI'])) {
     $dni = $_GET['DNI'];
     // Prevenir inyección SQL usando mysqli_real_escape_string o consultas preparadas
-    $dni = mysqli_real_escape_string($conexion, $dni);
+    $dni = mysqli_real_escape_string($conn, $dni);
 
-    $consulta = mysqli_query($conexion, "SELECT * FROM profesores WHERE dni = '$dni'");
+    $consulta = mysqli_query($conn, "SELECT * FROM profesores WHERE dni = '$dni'");
 
     $result = [];
 
@@ -21,7 +21,7 @@ if(isset($_GET['DNI'])) {
     echo json_encode($result);
 } else {
 
-    $consulta = mysqli_query($conexion, "SELECT * FROM profesores");
+    $consulta = mysqli_query($conn, "SELECT * FROM profesores");
 
     $result = $consulta->fetch_all();
 

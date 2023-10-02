@@ -2,7 +2,7 @@
 $user = "root";
 $pass = "";
 $host = "localhost";
-$datab = "gestion de alumnos";
+$datab = "gda";
 
 $conn = new mysqli($host,$user,$pass,$datab);
 

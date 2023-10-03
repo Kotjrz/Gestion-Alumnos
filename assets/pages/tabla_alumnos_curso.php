@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['curso']) && isset($_P
     $curso = $_POST['curso'];
     $anio = $_POST['anio'];
 
-    $consulta = "SELECT legajo_alumno.DNI,legajo_alumno.Nombre_alumno, legajo_alumno.Apellido_alumno, curso_alumnos.Grupo 
+    $consulta = "SELECT alumnos.DNI,alumnos.nombres, alumnos.apellidos, curso_alumnos.Grupo 
                  FROM curso_alumnos 
-                 INNER JOIN legajo_alumno ON curso_alumnos.Alumnos_CA = legajo_alumno.Legajo 
+                 INNER JOIN alumnos ON curso_alumnos.Alumnos_CA = alumnos.DNI 
                  INNER JOIN curso ON curso_alumnos.Curso_CA = curso.ID_curso 
                  WHERE curso.Nombre_Curso = '$curso' AND curso.Anio = '$anio'";
 

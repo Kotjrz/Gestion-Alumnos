@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['curso']) && isset($_P
 
         echo '<tr>';
         echo '<td>' . $alumno["DNI"] . '</td>';
-        echo '<td>' . $alumno["Nombre_alumno"] . " " . $alumno["Apellido_alumno"] . '</td>';
+        echo '<td>' . $alumno["nombres"] . " " . $alumno["apellidos"] . '</td>';
         echo '<td>' . $alumno["Grupo"] . '</td>';      
     }
     echo '</tr>';

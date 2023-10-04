@@ -52,6 +52,9 @@
                     'localiDomicilio' => 'Localidad de domicilio actual',
                     'distrito' => 'Distrito de nacimiento',
                     'localidad' => 'Localidad de nacimiento',
+                    'ciclo' => 'Ciclo',
+                    'orientacion' => 'Orientacion',
+                    'anio' => 'Año',
                 ];
 
                 // Muestra los datos del estudiante.
@@ -71,6 +74,8 @@
 
                         // Muestra la información del estudiante.
                         echo '<p><strong>' . $displayColumnName . ':</strong> ' . $value . '</p>';
+                        $editLink = '../php/editar-campo.php?column=' . $columnName . '&idalumno=' . $id_alumno;
+                        echo '<p><a href="' . $editLink . '">Editar ' . $displayColumnName . '</a></p>';
                     }
                     ?>
 
@@ -78,14 +83,6 @@
 
         <?php
 
-                // Agrega un enlace para editar cada campo individualmente.
-                echo '<h2>Editar Campos</h2>';
-
-                foreach ($row as $columnName => $value) {
-                    $editLink = '../php/editar-campo.php?column=' . $columnName . '&idalumno=' . $id_alumno;
-                    $displayColumnName = isset($columnNamesMap[$columnName]) ? $columnNamesMap[$columnName] : $columnName;
-                    echo '<p><a href="' . $editLink . '">Editar ' . $displayColumnName . '</a></p>';
-                }
 
                 // Agrega un enlace para volver a la página de tabla de alumnos.
                 echo '<p><a href="../pages/tabla-alumnos.php">Volver</a></p>';

@@ -61,8 +61,8 @@ $totalPages = ceil($totalItems / $limit);
                     <th>DNI</th>
                     <th>Apellidos</th>
                     <th>Nombres</th>
-                    <th>Column 4</th>
-                    <th>Column 5</th>
+                    <th>Año</th>
+                    <th>Orientacion</th>
                     <th>Detalles</th>
                     <!-- <th>Eliminar</th> -->
                 </tr>
@@ -73,8 +73,8 @@ $totalPages = ceil($totalItems / $limit);
                         <td><?php echo $rowSql['DNI']; ?></td>
                         <td><?php echo $rowSql['apellidos']; ?></td>
                         <td><?php echo $rowSql['nombres']; ?></td>
-                        <td>No hecho</td>
-                        <td>No hecho</td>
+                        <td><?php echo $rowSql['anio'] . '°'; ?></td>
+                        <td><?php echo $rowSql['orientacion']; ?></td>
                         <td><a href="../pages/alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-detalles">Detalles</a></td>
                         <!-- <td><a href="../php/eliminar-alumno.php?idalumno=<?php echo $rowSql["idAlumno"]; ?>" class="a-eliminar">Eliminar</a></td> -->
                     </tr>

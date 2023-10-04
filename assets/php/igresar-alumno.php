@@ -3,10 +3,10 @@
 include("lib/conn.php");
 
 
-$stmt = $conn->prepare("INSERT INTO alumnos (`apellidos`, `nombres`, `fechaDeNacimiento`, `DNI`, `CUIL`, `CPI`, `documentoExtranjero`, `tipoDoc`, `DNIe`, `idenGenero`, `nacionalidad`, `provincia`, `distrito`, `localidad`, `otra`, `direccion`, `piso`, `torre`, `depto`, `entre`, `yEntre`, `otroDato`, `provDomicilio`, `distriDomicilio`, `localiDomicilio`, `telefonoFIjo`, `telefonoCelular`,`cantHermanos`, `hermEscuela`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO alumnos (`apellidos`, `nombres`, `fechaDeNacimiento`, `DNI`, `CUIL`, `CPI`, `documentoExtranjero`, `tipoDoc`, `DNIe`, `idenGenero`, `nacionalidad`, `provincia`, `distrito`, `localidad`, `otra`, `direccion`, `piso`, `torre`, `depto`, `entre`, `yEntre`, `otroDato`, `provDomicilio`, `distriDomicilio`, `localiDomicilio`, `telefonoFIjo`, `telefonoCelular`,`cantHermanos`, `hermEscuela`, `ciclo`, `orientacion`, `anio`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
-$stmt->bind_param("sssssssssssssssssssssssssssss", $apellidos, $nombres, $FechaDeNacimiento, $DNI, $CUIL, $CPI, $documentoExtranjero, $tipoDocumento, $DNIe, $idenGenero, $nacionalidad, $provincia, $distrito, $localidad, $otra, $direccion, $piso, $torre, $depto, $entre, $yEntre, $otroDato, $provDomicilio, $distriDomicilio, $loacliDomicilio, $telefonoFijo, $telefonoCelular, $cantHermanos, $hermEscuela,);
+$stmt->bind_param("ssssssssssssssssssssssssssssssss", $apellidos, $nombres, $FechaDeNacimiento, $DNI, $CUIL, $CPI, $documentoExtranjero, $tipoDocumento, $DNIe, $idenGenero, $nacionalidad, $provincia, $distrito, $localidad, $otra, $direccion, $piso, $torre, $depto, $entre, $yEntre, $otroDato, $provDomicilio, $distriDomicilio, $loacliDomicilio, $telefonoFijo, $telefonoCelular, $cantHermanos, $hermEscuela, $ciclo, $orientacion, $anio);
 
 $apellidos = $_POST["apellido"];
 $nombres = $_POST["nombre"];
@@ -37,6 +37,9 @@ $telefonoFijo = $_POST["telefono"];
 $telefonoCelular = $_POST["celular"];
 $cantHermanos = $_POST["herm"];
 $hermEscuela = $_POST["cantEscuela"];
+$ciclo = $_POST["ciclo"];
+$orientacion = $_POST["orientacion"];
+$anio = $_POST["anio"];
 
 $stmt->execute();
 

@@ -33,8 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (mysqli_query($conn, $sql)) {
         echo "Datos insertados correctamente.";
+        echo "<br>";
+        echo "<a href='../../index.html'>Volver a HOME</a>";
     } else {
         echo "Error al insertar los datos: " . mysqli_error($connection);
+        echo "<br>";
+        echo "<a href='../../index.html'>Volver a HOME</a>";
     }
 
     mysqli_close($conn);

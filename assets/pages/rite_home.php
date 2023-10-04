@@ -39,7 +39,7 @@ if (isset($_POST['dni'])) {
     $query_anios_participacion = "SELECT DISTINCT curso.Anio FROM curso 
                                         INNER JOIN materia ON curso.ID_curso = materia.curso 
                                         INNER JOIN notas ON materia.Id = notas.Materia 
-                                        INNER JOIN legajo_alumno ON legajo_alumno.Legajo = notas.Alumno
+                                        INNER JOIN alumnos ON alumnos.DNI = notas.Alumno
                                         WHERE legajo_alumno.DNI = '$dni'";
 
     $resultado_anios = mysqli_query($conn, $query_anios_participacion);
@@ -53,7 +53,7 @@ if (isset($_POST['dni'])) {
     $query = "SELECT * FROM legajo_alumno WHERE DNI = '$dni'";
     $nom = mysqli_query($connection, $query);
     foreach ($nom as $nombre) {
-        echo "<h1 style='text-align: center;'>Notas por instancia de " . $nombre["Nombre_alumno"] . " " . $nombre["Apellido_alumno"] . "</h1>";
+        echo "<h1 style='text-align: center;'>Notas por instancia de " . $nombre["DNI"] . " " . $nombre["Apellido_alumno"] . "</h1>";
     }
     $anoActual = '';
     foreach ($aniosParticipacion as $anoParticipacion) {
@@ -65,9 +65,9 @@ if (isset($_POST['dni'])) {
                             notas.nota_ind6, notas.nota_trayect_6, notas.nota_ind7, notas.nota_trayect_7, notas.nota_ind8, 
                             notas.nota_trayect_8, notas.nota_ind9, notas.nota_trayect_9, notas.nota_ind10, notas.nota_trayect_10, 
                             notas.nota_ind11, notas.nota_trayect_11, notas.nota_ind12, notas.nota_trayect_12 
-                            FROM notas INNER JOIN legajo_alumno ON legajo_alumno.Legajo = notas.Alumno INNER JOIN materia 
+                            FROM notas INNER JOIN alumnos ON alumnos.DNI = notas.Alumno INNER JOIN materia 
                             ON materia.Id = notas.Materia INNER JOIN curso ON curso.ID_curso = materia.curso INNER JOIN profesores 
-                            ON profesores.numLegajo = notas.Profesor WHERE notas.Instancia = '$inst' AND legajo_alumno.DNI = '$dni' 
+                            ON profesores.DNI = notas.Profesor WHERE notas.Instancia = '$inst' AND alumnos.DNI = '$dni' 
                             AND curso.Anio = '$anoParticipacion'";
             echo "<h3>$inst</h3>";
             echo "<table border='1'>

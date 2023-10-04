@@ -4,7 +4,7 @@ include '../php/lib/conn.php';
 
 $consulta_materia = "SELECT materia.Id, materia.Nombre, curso.Nombre_Curso, curso.Anio FROM materia INNER JOIN curso ON materia.curso = curso.ID_curso;";
 $consulta_profesor = "SELECT * FROM profesores";
-$consulta_alumno = "SELECT * FROM legajo_alumno";
+$consulta_alumno = "SELECT * FROM alumnos";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ $consulta_alumno = "SELECT * FROM legajo_alumno";
             <select name="profesor" id="profesor">
                 <option value="">Seleccione un profesor</option>
                 <?php foreach ($conn->query($consulta_profesor) as $option) { ?>
-                    <option value="<?php echo $option["numLegajo"] ?>"><?php echo $option["Nombre_profesor"] . " " . $option["Apellido_profesor"] . " - " . $option["DNI"] ?></option>
+                    <option value="<?php echo $option["DNI"] ?>"><?php echo $option["Nombre"] . " " . $option["Apellido"]?></option>
                 <?php } ?>
             </select>
             <br><br>
@@ -39,7 +39,7 @@ $consulta_alumno = "SELECT * FROM legajo_alumno";
             <select name="alumno" id="alumno">
                 <option value="">Seleccione un Alumno</option>
                 <?php foreach ($conn->query($consulta_alumno) as $option) { ?>
-                    <option value="<?php echo $option["Legajo"] ?>"><?php echo $option["Nombre_alumno"] . " " . $option["Apellido_alumno"] . " - " . $option["DNI"] ?></option>
+                    <option value="<?php echo $option["DNI"] ?>"><?php echo $option["nombres"] . " " . $option["apellidos"]?></option>
                 <?php } ?>
             </select>
             <?php echo "  -  " ?>

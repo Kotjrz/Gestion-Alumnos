@@ -4,7 +4,7 @@ use function PHPSTORM_META\sql_injection_subst;
 
 include '../php/lib/conn.php';
 
-$sql = "SELECT profesores.Nombre_profesor, profesores.Apellido_profesor, materia.Nombre, materia.Horario, curso.Nombre_Curso, curso.Anio FROM profesor_materia INNER JOIN materia ON profesor_materia.Materia = materia.Id INNER JOIN profesores ON profesor_materia.Profesor = profesores.numLegajo INNER JOIN curso ON materia.curso = curso.ID_curso;";
+$sql = "SELECT profesores.Nombre, profesores.Apellido, materia.Nombre, materia.Horario, curso.Nombre_Curso, curso.Anio FROM profesor_materia INNER JOIN materia ON profesor_materia.Materia = materia.Id INNER JOIN profesores ON profesor_materia.Profesor = profesores.idDocente INNER JOIN curso ON materia.curso = curso.ID_curso;";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ $sql = "SELECT profesores.Nombre_profesor, profesores.Apellido_profesor, materia
         <td><?php echo $mostrar['Nombre'] ?></td>
         <td><?php echo $mostrar['Horario'] ?></td>
         <td><?php echo $mostrar['Nombre_Curso'] . ' - ' . $mostrar['Anio'] ?></td>
-        <td><?php echo $mostrar['Nombre_profesor'] . '  ' . $mostrar['Apellido_profesor'] ?></td>
+        <td><?php echo $mostrar['Nombre'] . '  ' . $mostrar['Apellido'] ?></td>
       </tr>
     <?php } ?>
   </table>

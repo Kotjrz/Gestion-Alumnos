@@ -8,11 +8,11 @@ header("Content-Type: application/json");
 if(isset($_GET['DNI'])) {
     $dni = $_GET['DNI'];
     // Prevenir inyección SQL usando mysqli_real_escape_string o consultas preparadas
-    $dni = mysqli_real_escape_string($conexion, $dni);
+    $dni = mysqli_real_escape_string($conn, $dni);
 
     $consulta = mysqli_query($conn, "SELECT * FROM alumnos WHERE dni = '$dni'");
 
-    $result = [];
+    $result = $consulta->fetch_all(MYSQLI_ASSOC);
 
     while ($registro = mysqli_fetch_assoc($consulta)) {
         $result[] = $registro;

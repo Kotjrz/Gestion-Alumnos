@@ -29,7 +29,7 @@ if(isset($_GET['alumnoID'])) {
     echo json_encode($result);
 } else {
 
-    $consulta = mysqli_query($conn, "SELECT * FROM materia");
+    $consulta = mysqli_query($conn, "SELECT * FROM curso");
 
     $result = $consulta->fetch_all();
 

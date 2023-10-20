@@ -90,7 +90,7 @@ INSERT INTO `alumnos` (`idAlumno`, `idCuenta`, `apellidos`, `nombres`, `fechaDeN
 CREATE TABLE `cuenta` (
   `idCuenta` int(11) NOT NULL,
   `usuario` varchar(24) NOT NULL,
-  `contraseña` varchar(24) NOT NULL,
+  `contrasena` varchar(24) NOT NULL,
   `rol` enum('Alumno','Docente','Preceptor','Secretaria','Directivo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

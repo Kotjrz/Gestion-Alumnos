@@ -23,7 +23,7 @@ if(isset($_GET['DNI'])) {
 
     $consulta = mysqli_query($conn, "SELECT * FROM alumnos");
 
-    $result = $consulta->fetch_all();
+    $result = $consulta->fetch_all(MYSQLI_ASSOC);
 
     echo json_encode($result);
 

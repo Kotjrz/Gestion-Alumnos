@@ -24,14 +24,14 @@ if(isset($_GET['alumnoID'])) {
                                     (SELECT Curso_CA FROM curso_alumnos WHERE Alumnos_CA in 
                                     (SELECT idAlumno from alumnos where DNI = '$dni')); ");
 
-    $result = $consulta->fetch_all();
+    $result = $consulta->fetch_all(MYSQLI_ASSOC);
 
     echo json_encode($result);
 } else {
 
     $consulta = mysqli_query($conn, "SELECT * FROM curso");
 
-    $result = $consulta->fetch_all();
+    $result = $consulta->fetch_all(MYSQLI_ASSOC);
 
     echo json_encode($result);
 

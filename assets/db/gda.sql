@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2023 at 10:52 PM
+-- Generation Time: Oct 21, 2023 at 01:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumnos` (
   `idAlumno` int(11) NOT NULL,
+  `idCuenta` int(11) NOT NULL,
   `apellidos` varchar(24) NOT NULL,
   `nombres` varchar(24) NOT NULL,
   `fechaDeNacimiento` date NOT NULL,
@@ -57,24 +58,41 @@ CREATE TABLE `alumnos` (
   `telefonoFijo` varchar(32) DEFAULT NULL,
   `telefonoCelular` varchar(32) DEFAULT NULL,
   `cantHermanos` int(20) DEFAULT NULL,
-  `hermEscuela` int(20) DEFAULT NULL
+  `hermEscuela` int(20) DEFAULT NULL,
+  `ciclo` enum('Ciclo Basico','Ciclo Superior') NOT NULL,
+  `orientacion` text NOT NULL,
+  `anio` enum('1','2','3','4','5','6','7') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `alumnos`
 --
 
-INSERT INTO `alumnos` (`idAlumno`, `apellidos`, `nombres`, `fechaDeNacimiento`, `DNI`, `CUIL`, `CPI`, `documentoExtranjero`, `tipoDoc`, `DNIe`, `idenGenero`, `nacionalidad`, `provincia`, `direccion`, `distrito`, `localidad`, `otra`, `piso`, `torre`, `depto`, `entre`, `yEntre`, `otroDato`, `provDomicilio`, `distriDomicilio`, `localiDomicilio`, `telefonoFijo`, `telefonoCelular`, `cantHermanos`, `hermEscuela`) VALUES
-(1, 'Joaquin', 'Ramirez', '2023-08-15', 89238923, 2147483647, '', '', '', 0, 'Masculino', 'USA', NULL, 'skllls', '', '', '', 0, 0, 0, 'klskdl', 'kdlskdls', 'dslk', 'ksl', 'ksldksl', 'kdsldks', '1121', '121212', 1, 0),
-(3, 'Romani', 'Rodriguez', '0000-00-00', 232332323, 32323232, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(4, 'Ramelli', 'Joaquin', '0023-08-15', 2147483647, 2147483647, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(6, 'Pufahl', 'Rodriguez', '0000-00-00', 45678, 12389, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(7, 'Joaco', 'Rodriguez', '0000-00-00', 46098442, 123545, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(8, 'Zanardi', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(9, 'Deter', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(11, 'Fink', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(12, 'Mendez', 'Rodriguez', '2005-12-05', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0),
-(13, 'Tomaxd', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', 'Buenos aires', '', 'kajksd', 'jdksjakda', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0);
+INSERT INTO `alumnos` (`idAlumno`, `idCuenta`, `apellidos`, `nombres`, `fechaDeNacimiento`, `DNI`, `CUIL`, `CPI`, `documentoExtranjero`, `tipoDoc`, `DNIe`, `idenGenero`, `nacionalidad`, `provincia`, `direccion`, `distrito`, `localidad`, `otra`, `piso`, `torre`, `depto`, `entre`, `yEntre`, `otroDato`, `provDomicilio`, `distriDomicilio`, `localiDomicilio`, `telefonoFijo`, `telefonoCelular`, `cantHermanos`, `hermEscuela`, `ciclo`, `orientacion`, `anio`) VALUES
+(1, 0, 'Joaquin', 'Ramirez', '2023-08-15', 89238923, 2147483647, '', '', '', 0, 'Masculino', 'USA', NULL, 'skllls', '', '', '', 0, 0, 0, 'klskdl', 'kdlskdls', 'dslk', 'ksl', 'ksldksl', 'kdsldks', '1121', '121212', 1, 0, 'Ciclo Basico', '', '1'),
+(3, 0, 'Romani', 'Rodriguez', '0000-00-00', 232332323, 32323232, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(4, 0, 'Ramelli', 'Joaquin', '0023-08-15', 2147483647, 2147483647, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(6, 0, 'Pufahl', 'Rodriguez', '0000-00-00', 45678, 12389, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(7, 0, 'Joaco', 'Rodriguez', '0000-00-00', 46098442, 123545, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(8, 0, 'Zanardi', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(9, 0, 'Deter', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(11, 0, 'Fink', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(12, 0, 'Mendez', 'Rodriguez', '2005-12-05', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(13, 0, 'Tomaxd', 'Rodriguez', '0000-00-00', 0, 0, '', '', '', 0, '', '', 'Buenos aires', '', 'kajksd', 'jdksjakda', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', '', '1'),
+(14, 0, 'Mentira', 'Mentira', '0000-00-00', 0, 0, '', '', '', 0, '', '', NULL, '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', 0, 0, 'Ciclo Basico', 'Programacion', '4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuenta`
+--
+
+CREATE TABLE `cuenta` (
+  `idCuenta` int(11) NOT NULL,
+  `usuario` varchar(24) NOT NULL,
+  `contraseña` varchar(24) NOT NULL,
+  `rol` enum('Alumno','Docente','Preceptor','Secretaria','Directivo') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -95,10 +113,12 @@ CREATE TABLE `curso` (
 INSERT INTO `curso` (`ID_curso`, `Nombre_Curso`, `Anio`) VALUES
 (1, '3°1°', 2023),
 (2, '1°3°', 2017),
-(3, '7°1°', 2021),
+(3, '7°2°', 2021),
 (4, '2°4', 2014),
 (5, '7°2°', 2023),
-(6, '1°2°', 2017);
+(6, '1°2°', 2017),
+(8, '3°1°', 2022),
+(9, '7°3°', 2024);
 
 -- --------------------------------------------------------
 
@@ -145,6 +165,16 @@ CREATE TABLE `indicadores` (
   `ind12` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `indicadores`
+--
+
+INSERT INTO `indicadores` (`id_indicador`, `materia`, `instancia`, `ind1`, `ind2`, `ind3`, `ind4`, `ind5`, `ind6`, `ind7`, `ind8`, `ind9`, `ind10`, `ind11`, `ind12`) VALUES
+(39, 29, '1era', '', '', '', '', '', '', '', '', '', '', '', ''),
+(40, 29, '2nda', '', '', '', '', '', '', '', '', '', '', '', ''),
+(41, 29, '3era', '', '', '', '', '', '', '', '', '', '', '', ''),
+(42, 29, '4ta', '', '', '', '', '', '', '', '', '', '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -169,7 +199,8 @@ INSERT INTO `materia` (`Id`, `Nombre`, `Horario`, `curso`) VALUES
 (24, 'Biologia', '8hs-18hs', 1),
 (25, 'Biologia', '8hs-18hs', 1),
 (26, 'Biologia', '8hs-18hs', 2),
-(28, 'Practicas del Lenguaje', '12:55-14:55', 3);
+(28, 'Practicas del Lenguaje', '12:55-14:55', 3),
+(29, 'Fisca', '17:55 - 21:55', 8);
 
 -- --------------------------------------------------------
 
@@ -218,7 +249,8 @@ INSERT INTO `notas` (`id_nota`, `Materia`, `Profesor`, `Alumno`, `Instancia`, `F
 (17, 22, 3, 1, '1era_Instancia', '2023-08-23', 7, 3, 8, 4, 7, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (18, 22, 3, 1, '2nda_Instancia', '2023-08-31', 6, 3, 7, 4, 5, 3, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (19, 21, 4, 1, '1era_Instancia', '2023-08-31', 9, 5, 8, 4, 10, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(20, 21, 4, 1, '4ta_Instancia', '2023-09-04', 9, 5, 8, 4, 7, 4, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(20, 21, 4, 1, '4ta_Instancia', '2023-09-04', 9, 5, 8, 4, 7, 4, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(21, 25, 22222, 46098442, '2nda_Instancia', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -228,6 +260,7 @@ INSERT INTO `notas` (`id_nota`, `Materia`, `Profesor`, `Alumno`, `Instancia`, `F
 
 CREATE TABLE `profesores` (
   `idDocente` int(20) NOT NULL,
+  `idCuenta` int(11) NOT NULL,
   `Nombre` text NOT NULL,
   `Apellido` text NOT NULL,
   `nacionalidad` varchar(24) NOT NULL,
@@ -255,8 +288,8 @@ CREATE TABLE `profesores` (
 -- Dumping data for table `profesores`
 --
 
-INSERT INTO `profesores` (`idDocente`, `Nombre`, `Apellido`, `nacionalidad`, `DNI`, `cuil`, `Edad`, `fechaDeNacimiento`, `numeroDeTelefono`, `numeroDeCelular`, `domicilio`, `domicilio_piso`, `domicilio_depto`, `localidad`, `partido`, `Mail`, `mailAbc`, `Titulo`, `legajo`, `files`, `fechaDeIngreso`, `estado`) VALUES
-(10, 'Tomas', 'Tomas', 'Argentino', 22222, 22222, 12, '1212-12-12', 11111, 1111, 'jua 32', 22, 2, 'tomas', 'tomas', 'Tomas@tomas.com', 'tomas@tomas.com', 'qsq', 0, 0, '2321-12-21', '');
+INSERT INTO `profesores` (`idDocente`, `idCuenta`, `Nombre`, `Apellido`, `nacionalidad`, `DNI`, `cuil`, `Edad`, `fechaDeNacimiento`, `numeroDeTelefono`, `numeroDeCelular`, `domicilio`, `domicilio_piso`, `domicilio_depto`, `localidad`, `partido`, `Mail`, `mailAbc`, `Titulo`, `legajo`, `files`, `fechaDeIngreso`, `estado`) VALUES
+(10, 0, 'Tomas', 'Tomas', 'Argentino', 22222, 22222, 12, '1212-12-12', 11111, 1111, 'jua 32', 22, 2, 'tomas', 'tomas', 'Tomas@tomas.com', 'tomas@tomas.com', 'qsq', 0, 0, '2321-12-21', '');
 
 -- --------------------------------------------------------
 
@@ -282,6 +315,18 @@ INSERT INTO `profesor_materia` (`id_profesor_materia`, `Materia`, `Profesor`, `c
 (1, 22, 3, 'titular interino', '2023-09-08', '2023-09-29', 'ambos'),
 (2, 21, 3, 'suplente', '2023-09-05', '2023-09-23', 'ambos');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sesiones`
+--
+
+CREATE TABLE `sesiones` (
+  `token` varchar(15) NOT NULL,
+  `idCuenta` int(11) NOT NULL,
+  `creacion` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -290,7 +335,14 @@ INSERT INTO `profesor_materia` (`id_profesor_materia`, `Materia`, `Profesor`, `c
 -- Indexes for table `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`idAlumno`);
+  ADD PRIMARY KEY (`idAlumno`),
+  ADD KEY `idCuenta` (`idCuenta`);
+
+--
+-- Indexes for table `cuenta`
+--
+ALTER TABLE `cuenta`
+  ADD PRIMARY KEY (`idCuenta`);
 
 --
 -- Indexes for table `curso`
@@ -330,12 +382,26 @@ ALTER TABLE `notas`
   ADD KEY `Alumno` (`Alumno`);
 
 --
+-- Indexes for table `profesores`
+--
+ALTER TABLE `profesores`
+  ADD PRIMARY KEY (`idDocente`),
+  ADD KEY `idCuenta` (`idCuenta`);
+
+--
 -- Indexes for table `profesor_materia`
 --
 ALTER TABLE `profesor_materia`
   ADD PRIMARY KEY (`id_profesor_materia`),
   ADD KEY `Materia` (`Materia`),
   ADD KEY `Profesor` (`Profesor`);
+
+--
+-- Indexes for table `sesiones`
+--
+ALTER TABLE `sesiones`
+  ADD PRIMARY KEY (`token`),
+  ADD KEY `idCuenta` (`idCuenta`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -345,13 +411,19 @@ ALTER TABLE `profesor_materia`
 -- AUTO_INCREMENT for table `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `cuenta`
+--
+ALTER TABLE `cuenta`
+  MODIFY `idCuenta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `ID_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `curso_alumnos`
@@ -363,19 +435,25 @@ ALTER TABLE `curso_alumnos`
 -- AUTO_INCREMENT for table `indicadores`
 --
 ALTER TABLE `indicadores`
-  MODIFY `id_indicador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_indicador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `notas`
 --
 ALTER TABLE `notas`
-  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `profesores`
+--
+ALTER TABLE `profesores`
+  MODIFY `idDocente` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `profesor_materia`

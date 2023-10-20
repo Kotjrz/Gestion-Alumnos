@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 01:00 AM
+-- Generation Time: Oct 20, 2023 at 11:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -324,7 +324,7 @@ INSERT INTO `profesor_materia` (`id_profesor_materia`, `Materia`, `Profesor`, `c
 CREATE TABLE `sesiones` (
   `token` varchar(15) NOT NULL,
   `idCuenta` int(11) NOT NULL,
-  `creacion` datetime NOT NULL
+  `creacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

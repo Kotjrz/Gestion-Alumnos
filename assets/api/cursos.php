@@ -4,6 +4,17 @@ include('../php/lib/conn.php');
 
 header("Content-Type: application/json");
 
+$token = $_GET['token'];
+$query = "SELECT * FROM sesiones WHERE token = '$token'";
+$result = mysqli_query($conn, $query);
+$result = $consulta->fetch_assoc();
+
+
+if(!$result) {
+    echo json_encode("No existe la sesión");
+    exit;
+}
+
 // Verificar si se recibió una solicitud GET con el parámetro DNI
 if(isset($_GET['alumnoID'])) {
     $alumno = $_GET['alumno'];

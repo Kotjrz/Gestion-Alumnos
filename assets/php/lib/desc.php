@@ -1,17 +1,6 @@
 <?php
-
-$token = $_GET['token'];
-$query = "SELECT * FROM sesiones WHERE token = '$token'";
-$result = mysqli_query($conn, $query);
-$result = $consulta->fetch_assoc();
-
-if (!isset($_SESSION['tiempo'])) {
-    $_SESSION['tiempo']=time();
+function eliminarTokenSiCaduco($conn) {
+    $query = "DELETE FROM sesiones where TIMEDIFF(NOW(),creacion) > '01:00:00';";
+    $result = mysqli_query($conn, $query);
 }
-else if (time() - $_SESSION['tiempo'] > 3600) {
-    $query = "DELETE FROM sesiones WHERE token = '$token'";
-    die();  
-}
-$_SESSION['tiempo']=time();
-
 ?>

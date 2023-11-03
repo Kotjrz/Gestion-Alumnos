@@ -2,7 +2,7 @@
 
 function checkToken(string $token) : array | bool | null{
     include("conn.php");
-
+    $token = mysqli_real_escape_string($token)
     $query = "SELECT * FROM sesiones WHERE token = '$token'";
     $consulta = mysqli_query($conn, $query);
     $result = $consulta->fetch_assoc();

@@ -43,8 +43,8 @@ include("../php/eliminar-docente.php");
     ?>
       <tr>
         <td><?php echo $mostrar['DNI'] ?></td>
-        <td><?php echo $mostrar['Nombre'] ?></td>
-        <td><?php echo $mostrar['Apellido'] ?></td>
+        <td><?php echo $mostrar['Nombres'] ?></td>
+        <td><?php echo $mostrar['Apellidos'] ?></td>
         <td><?php echo $mostrar['Mail'] ?></td>
         <td><?php echo $mostrar['numeroDeTelefono'] ?></td>
         <td><a href="../php/modificar-docente.php?idDocente=<?php echo $mostrar["idDocente"]; ?>" class="button-medium-update">Actulizar</a></td>

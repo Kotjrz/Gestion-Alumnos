@@ -31,7 +31,7 @@ $consulta_alumno = "SELECT * FROM alumnos";
             <select name="profesor" id="profesor">
                 <option value="">Seleccione un profesor</option>
                 <?php foreach ($conn->query($consulta_profesor) as $option) { ?>
-                    <option value="<?php echo $option["DNI"] ?>"><?php echo $option["Nombre"] . " " . $option["Apellido"]?></option>
+                    <option value="<?php echo $option["DNI"] ?>"><?php echo $option["Nombres"] . " " . $option["Apellidos"]?></option>
                 <?php } ?>
             </select>
             <br><br>

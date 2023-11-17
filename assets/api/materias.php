@@ -2,11 +2,11 @@
 
 include('../php/lib/conn.php');
 
-include('../php/lib/checklogin.php');
+// include('../php/lib/checklogin.php');
 
 header("Content-Type: application/json");
 
-$sesion = checkToken($_GET["token"]);
+// $sesion = checkToken($_GET["token"]);
 
 
 if(!$sesion) {
@@ -15,12 +15,12 @@ if(!$sesion) {
 }
 
 if($sesion["rol"] == "Alumno") {
-    $alumno = getInfo($sesion);
+/*     $alumno = getInfo($sesion);
     $alumnoID = $alumno["idAlumno"];
     $query = "SELECT * FROM `materia` WHERE curso IN 
               (SELECT Curso_CA from curso_alumnos where alumnos_CA = 1); ";
     $result = $conn->query($query);
-    echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+    echo json_encode($result->fetch_all(MYSQLI_ASSOC)); */
 }else {
 
 

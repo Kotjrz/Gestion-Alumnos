@@ -1,22 +1,22 @@
 <?php
 
 include('../php/lib/conn.php');
-include('../php/lib/checklogin.php');
+//include('../php/lib/checklogin.php');
 
 header("Content-Type: application/json");
 
-$sesion = checkToken($_GET["token"]);
+//$sesion = checkToken($_GET["token"]);
 
 
-if(!$sesion) {
-    echo json_encode("No existe la sesión");
-    exit;
-}
+// if(!$sesion) {
+//     echo json_encode("No existe la sesión");
+//     exit;
+// }
 
 if($sesion["rol"] == "Alumno") {
-    $alumno = getInfo($sesion);
+/*     $alumno = getInfo($sesion);
 
-    echo json_encode($alumno);
+    echo json_encode($alumno); */
 }else {
     // Verificar si se recibió una solicitud GET con el parámetro DNI
     if(isset($_GET['DNI'])) {

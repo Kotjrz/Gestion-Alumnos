@@ -1,5 +1,5 @@
 <?php 
-
+/*
 function checkToken(string $token) : array | bool | null{
     include("conn.php");
     $token = mysqli_real_escape_string($conn,$token);
